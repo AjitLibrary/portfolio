@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian Portfolio | Ajit Kumar Kainchi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS Variables and General Styles --- */
+        :root {
+            --primary-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --sidebar-bg: #e9ecef;
+            --text-color: #495057;
+            --header-color: #212529;
+            --accent-color: #0056b3; /* A deeper, professional blue */
+            --shadow-color: rgba(0, 0, 0, 0.07);
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Lora', serif;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        /* --- Main Layout: Sidebar + Content --- */
+        .portfolio-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 320px;
+            background-color: var(--sidebar-bg);
+            padding: 40px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-sizing: border-box;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 2.5;
+            padding: 50px;
+            overflow-y: auto;
+        }
+
+        /* --- Sidebar Specifics --- */
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--card-bg);
+            box-shadow: 0 8px 16px var(--shadow-color);
+            margin: 0 auto 20px;
+        }
+
+        .sidebar h1 {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            color: var(--header-color);
+            margin-bottom: 5px;
+        }
+
+        .sidebar .tagline {
+            font-weight: 300;
+            margin-bottom: 25px;
+            color: var(--accent-color);
+        }
+        
+         /* Rule added to fix vertical alignment */
+        .sidebar .contact-info p {
+            display: flex;
+            align-items: center;
+           margin: 0rem 2rem;
+            
+        }
+
+        .sidebar .contact-info i {
+            margin-right: 12px;
+            color: var(--accent-color);
+            width: 20px;
+            
+        }
+        
+        .cv-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .cv-button:hover {
+            background-color: var(--header-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* --- Main Content Styling --- */
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            border: 1px solid #e9ecef;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .section-header {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--header-color);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #dee2e6;
+            margin: 40px 0;
+        }
+
+        /* --- Timeline for Experience --- */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 4px;
+            background: #e9ecef;
+        }
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 50px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 4px solid var(--accent-color);
+            z-index: 1;
+        }
+        .timeline-content h3 {
+            margin-top: 0;
+            font-weight: 600;
+            color: var(--header-color);
+        }
+        .timeline-content .dates {
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Skills Section with Badges --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .skill-badge {
+            background-color: #e9ecef;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .portfolio-container { flex-direction: column; }
+            .sidebar { position: static; height: auto; width: 100%; box-sizing: border-box; }
+             /* Rule added to fix vertical alignment */
+            .sidebar .contact-info p { display: flex; align-items: center;margin: 0rem 2rem;}
+        }
+        @media (max-width: 768px) {
+            .main-content, .sidebar { padding: 25px; }
+             /* Rule added to fix vertical alignment */
+            .sidebar .contact-info p { display: flex; align-items: center;margin: 0rem 2rem;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        
+        <aside class="sidebar">
+            <img src="https://www.niab.res.in/wp-content/uploads/elementor/thumbs/Ajit-r20ply85214m5wge59vusred678vkwrjghylao5agw.jpg" alt="Your Name" class="profile-pic">
+            
+            <h1>Ajit Kumar Kainchi</h1>
+            <p class="tagline">Librarian at NIAB, Hyderabad</p>
+            
+            <p>Dedicated and resourceful librarian with experience in academic and research institutions.</p>
+            
+           <!--  <a href="#/your-cv.pdf" class="cv-button" download>
+                <i class="fas fa-download"></i> Download CV
+            </a> -->
+
+            <hr>
+
+            <div class="contact-info">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i><a href="mailto:ajit3131kumar@gmail.com">ajit3131kumar@gmail.com</a></p>
+                <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/ajit-k-kainchi-127217195/" target="_blank">LinkedIn</a></p>
+                <p><i class="fab fa-researchgate"></i><a href="https://www.researchgate.net/profile/Ajit-Kainchi?ev=hdr_xprf" target="_blank">Researchgate</a></p>
+                <p><i class="fas fa-map-marker-alt"></i><span>Hyderabad, India</span></p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section class="card">
+                <h1 class="section-header">About Me</h1>
+                <p>Hello and Welcome! I am a Librarian with a passion for connecting people with information and fostering a love for learning. My career has taken me through some of India's most prestigious academic institutions, where I've specialized in managing library resources, supporting academic research, and implementing modern library technologies to enhance the user experience.</p>
+            </section>
+            
+            <section>
+                <h2 class="section-header">Work Experience</h2>
+                <div class="card timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Librarian, National Institute of Animal Biotechnology (NIAB)</h3>
+                            <p class="dates">HYDERABAD | CURRENT</p>
+                            <ul>
+                                <li>Manage collections supporting cutting-edge research in animal biotechnology.</li>
+                                <li>Implemented Koha LMS from scratch</li>
+                                <li>Established IRINS for scientist profiles & research metrics</li>
+                                <li>Social Media Coordinator for institute outreach</li>
+                                <li>Setting up Institutional Repository (DSpace)</li>
+                                <li>Assist scientists with literature searches and reference management.</li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Library Professional, Indian Institute of Technology (IIT)</h3>
+                            <p class="dates">MADRAS | Aug 2022- Jan 2025</p>
+                             <ul>
+                                <li>Supported academic activities at a premier engineering institute.</li>
+                                <li>Managed Circulation Section and assisted in Reference Services</li>
+                                <li>Managed Document Delivery Service, ensuring timely access to resources</li>
+                                <li>Performed cataloging of books for the library collection</li>
+                                <li>Created a comprehensive database of Standards from scratch</li>
+                                <li>Assisted in e-journal subscription management</li>
+                                <li>Coordinated library visits for external student groups</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                             <h3>Library Professional, Indian Institute of Advanced Study (IIAS)</h3>
+                            <p class="dates">SHIMLA | Dec 2021-Aug 2022</p>
+                             <ul>
+                                <li>Handling and customization of Journal publishing system, preprint server, Institutional Repository and LMS</li>
+                                <li>Contributed to the preservation and digitization of rare documents.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-content">
+                             <h3>Library Trainee, Indian Institute of Management (IIM)</h3>
+                            <p class="dates">AHMEDABAD | Nov 2020-Nov 2021</p>
+                             <ul>
+                              
+                                <li>Provided frontline support to students and faculty, addressing queries at the circulation desk and assisting with information discovery</li>
+                                <li>Gained hands-on experience in technical processing, including the cataloging and classification of new print and digital acquisitions.</li>
+                                <li>Supported user services by providing technical assistance for e-resource access issues and guiding patrons in using library search tools.</li>
+                                <li>Worked extensively with <strong>premier databases</strong> in Finance, Banking, Management, and Economics to extract data and support academic research.</li>
+</ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-header">Key Projects</h2>
+                <div class="card">
+                      <h3>Implementation of Koha ILS</h3>
+                    <p>Designed and implemented the Koha Integrated Library System from the ground up at the National Institute of Animal Biotechnology, Hyderabad. Responsibilities included server setup, system configuration, cataloging framework creation, and staff training. Successfully established a fully functional automated library system, improving resource accessibility</p>
+                    <hr>
+                    <h3>Database of Standards</h3>
+                    <p>Created a fully searchable local database of standard purchased by IIT Madras</p>
+                    <hr>
+                    <h3>DSpace: Document Viewer and Customization</h3>
+                    <p>Customized and implemented a document viewer in the Institutional Repository of IIAS Shimla, significantly enhancing the user experience and improving accessibility for repository users. </p>
+                    <hr>
+                    <h3>Customization of OJS(Open Journal System, OPS(Open Preprint Server)</h3>
+                    <p>Customized and optimized the journal publishing system and preprint server for IIAS Shimla, enhancing the platform’s functionality, usability, and overall publishing workflow.</p>
+                    <hr>
+                      <h3>Digital Archive of Local Manuscripts</h3>
+                    <p>Initiated and managed a project to digitize and create a publicly accessible online archive of rare local manuscripts, ensuring their long-term preservation and accessibility for global researchers.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-header">Skills</h2>
+                <div class="card">
+                    <h3>Professional Skills</h3>
+                    <div class="skills-container">
+                        <span class="skill-badge">Koha, DSpace, SLIM</span>
+                        <span class="skill-badge">Open Journal System</span>
+                        <span class="skill-badge">Open Preprint Server</span>
+                        <span class="skill-badge">E-Resource Management</span>
+                        <span class="skill-badge">RFID Systems</span>
+                        <span class="skill-badge">MARC21, RDA, DDC</span>
+                        <span class="skill-badge">HTML CSS</span>
+                         <span class="skill-badge">Python</span>
+                          <span class="skill-badge">SQL</span>
+                        <span class="skill-badge">Scopus & Web of Science</span>
+                        <span class="skill-badge">Mendeley</span>
+                        <span class="skill-badge">E-Resource and Journal Subscription Management</span>
+                        <span class="skill-badge">Information Literacy</span>
+                        <span class="skill-badge">Collection Development</span>
+                        <span class="skill-badge">Digital Archiving</span>
+                        <span class="skill-badge">Research Support</span>
+                    </div>
+                    <hr>
+                    <h3>Personal Skills</h3>
+                     <div class="skills-container">
+                        <span class="skill-badge">Strong Communication</span>
+                        <span class="skill-badge">Attention to Detail</span>
+                        <span class="skill-badge">Problem-Solving</span>
+                        <span class="skill-badge">Collaboration</span>
+                        <span class="skill-badge">Adaptability</span>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-header">Education</h2>
+                <div class="card timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Post Graduation | Central University of Himachal Pradesh</h3>
+                            <p class="dates">DHARAMSHALA | 2018-20</p>
+                            <ul>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Bachelor of Commerce | Rajendra Autonomous College</h3>
+                            <p class="dates">BALANGIR | 2014-17</p>
+                             <ul>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                   
+                </div>
+            </section>
+
+             <section>
+                <h2 class="section-header">Publications</h2>
+                <div class="card">
+               
+                    <h3>Bibliometric Mapping of Gender Disparity in Research Publications in India during 1999-2018: A Case Study of Shimla District, Himachal Pradesh</h3>
+                    <p><em>Journal of Information and Organizational Sciences, 42(2), 2023</em>. <a href="https://jios.foi.hr/index.php/jios/article/view/1760" target="_blank">View Article</a></p>
+                    <h3>Library As Publisher: A Successful Story of Indian Institute of Advanced Study Library, Shimla</h3>
+                    <p><em>NACLIN 2023</em>. <a href="#" target="_blank">View Article</a></p>
+                    <h3>Managing scientific research publishing using Open Journal Systems</h3>
+                    <p><em>In book: Libraries and Open Science : Issues, Challenges and Opportunities, 2022</em>. <a href="https://jios.foi.hr/index.php/jios/article/view/1760" target="_blank">View Article</a></p>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; 2025 Ajit Kumar Kainchi. All Rights Reserved.</p>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>

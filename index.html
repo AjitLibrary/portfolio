@@ -113,11 +113,11 @@
 
     /* --- Dark Mode --- */
     .dark-mode-slider {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 25px;
-    }
+        position: fixed;
+        right: 25px;
+        z-index: 1000;
+        margin-top: 0;
+      }
 
     .switch {
       position: relative;
@@ -226,13 +226,13 @@
       .portfolio-container { flex-direction: column; }
       .sidebar { position: static; height: auto; width: 100%; }
 
-      /* --- Floating Dark Mode Button for Mobile view --- */
+      /* --- Floating Dark Mode Button for Mobile --- */
       .dark-mode-slider {
-        position: fixed;   
-        bottom: 25px;      
-        right: 25px;      
-        z-index: 1000;     
-        margin-top: 0;     
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 1000;
+        margin-top: 0;
       }
     }
     @media (max-width: 768px) {
@@ -245,12 +245,21 @@
 <div class="portfolio-container">
   
   <aside class="sidebar">
+    <div class="dark-mode-slider">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
     <img src="https://www.niab.res.in/wp-content/uploads/elementor/thumbs/Ajit-r20ply85214m5wge59vusred678vkwrjghylao5agw.jpg" alt="Your Name" class="profile-pic">
     
     <h1>Ajit Kumar Kainchi</h1>
     <p class="tagline">Librarian at NIAB, Hyderabad</p>
     
-    <p>Dedicated and resourceful librarian with experience in academic and research institutions.</p>
+    <!-- Dark Mode Button Moved Here -->
+    
+
+    <p style="margin-top: 25px;">Dedicated and resourceful librarian with experience in academic and research institutions.</p>
 
     <hr>
 
@@ -260,14 +269,6 @@
       <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/ajit-k-kainchi-127217195/" target="_blank">LinkedIn</a></p>
       <p><i class="fab fa-researchgate"></i><a href="https://www.researchgate.net/profile/Ajit-Kainchi?ev=hdr_xprf" target="_blank">Researchgate</a></p>
       <p><i class="fas fa-map-marker-alt"></i><span>Hyderabad, India</span></p>
-    </div>
-
-    <!-- Dark Mode -->
-    <div class="dark-mode-slider">
-      <label class="switch">
-        <input type="checkbox" id="darkModeToggle">
-        <span class="slider"></span>
-      </label>
     </div>
 
   </aside>

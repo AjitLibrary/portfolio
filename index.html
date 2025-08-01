@@ -22,6 +22,7 @@
       --shadow-color: rgba(0, 0, 0, 0.07);
       --font-primary: 'Poppins', sans-serif;
       --font-secondary: 'Lora', serif;
+      --skill-badge-bg: #e9ecef;
     }
 
     /* Dark Mode */
@@ -33,6 +34,7 @@
       --header-color: #ffffff;
       --accent-color: #4dabf7;
       --shadow-color: rgba(0, 0, 0, 0.4);
+      --skill-badge-bg: #343a40;
     }
 
     body {
@@ -198,12 +200,15 @@
             gap: 15px;
         }
         .skill-badge {
-            background-color: #e9ecef;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+           
+    background-color: var(--skill-badge-bg); /* Use the variable */
+    color: var(--text-color); /* Add this to control the text color */
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
         }
         .skill-badge:hover {
             background-color: var(--accent-color);
